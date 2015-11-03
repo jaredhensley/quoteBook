@@ -28,18 +28,22 @@ angular.module('quoteBook').service('mainService', function () {
       text: 'What even is a jQuery?',
       author: 'Tyler S. McGinnis'
     }
-  ]
+  ];
 
+
+  //returns data array of quote objects
   this.getData = function () {
     return data;
-  }
+  };
 
+  //pushes new quotes to data array
   this.addData = function (obj) {
     if (obj.hasOwnProperty('text') && obj.hasOwnProperty('author')) {
       this.data.push(obj);
     }
   }
 
+  //removes object from data array based on a match of quote or author
   this.removeData = function (text) {
 
     for (var i = this.data.length - 1; i >= 0; i--) {
@@ -48,6 +52,11 @@ angular.module('quoteBook').service('mainService', function () {
       }
     }
 
-  }
+  };
+
+  //stores all currently existing quotes in local store
+  this.setStorage = function (name, val) {
+    localStorage.setItem(name, JSON.stringify(this.data));
+  };
 
 });

@@ -12,7 +12,7 @@
   <br>
   <input type="text" ng-model="newQuote" placeholder="insert quote..">
   <input type="text" ng-model='newAuthor' placeholder="insert author name...">
-  <button ng-click="addQuote()">Add Quote</button>
+  <button ng-click="addQuote(); setStorage()">Add Quote</button>
   <br>
   <input type="text" ng-model="deleteMe">
   <button ng-click="deleteQuote()">Delete Quote</button>

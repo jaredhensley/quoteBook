@@ -6,19 +6,23 @@ angular.module('quoteBook').controller('mainController', function ($scope, mainS
   $scope.data = mainService.data;
 
   $scope.addQuote = function () {
+
     var newObj = {
       author: $scope.newAuthor,
       text: $scope.newQuote
     };
 
     mainService.addData(newObj);
+    mainService.setStorage('quotes');
     $scope.newQuote = '';
     $scope.newAuthor = '';
+
   }
 
   $scope.deleteQuote = function () {
     mainService.removeData($scope.deleteMe);
     $scope.deleteMe = '';
   }
+
 
 });
