@@ -43,7 +43,7 @@ angular.module('quoteBook').service('mainService', function () {
   this.removeData = function (text) {
 
     for (var i = this.data.length - 1; i >= 0; i--) {
-      if (this.data[i].text === text) {
+      if (this.data[i].text === text || this.data[i].author === text) {
         this.data.splice(i, 1);
       }
     }
