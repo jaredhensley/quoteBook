@@ -3,6 +3,7 @@ angular.module('quoteBook').controller('mainController', function ($scope, mainS
   $scope.newQuote = '';
   $scope.newAuthor = '';
   $scope.deleteMe = '';
+  $scope.test = true;
   $scope.data = mainService.data;
 
   $scope.addQuote = function () {
@@ -22,7 +23,15 @@ angular.module('quoteBook').controller('mainController', function ($scope, mainS
   $scope.deleteQuote = function () {
     mainService.removeData($scope.deleteMe);
     $scope.deleteMe = '';
+    mainService.setStorage('quotes');
   }
 
+  $scope.filterNow = function () {
+    $scope.searchTerm = $scope.search;
+  }
+
+  $scope.getQuotes = function (name) {
+    mainService.getStorage(name);
+  }
 
 });

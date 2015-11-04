@@ -7,17 +7,23 @@
 </head>
 
 <body ng-app='quoteBook' ng-controller='mainController'>
-  <input type="text" ng-model="searchTerm">
-  <button ng-click="">Filter</button>
+
+  <input type="text" ng-show="test" ng-model="search" placeholder="filter your quotes">
+  <button ng-click="filterNow()">Filter</button>
   <br>
-  <input type="text" ng-model="newQuote" placeholder="insert quote..">
-  <input type="text" ng-model='newAuthor' placeholder="insert author name...">
+
+  <input type="text" ng-show="test" ng-model="newQuote" placeholder="insert quote...">
+
+  <input type="text" ng-show="test" ng-model='newAuthor' placeholder="insert author name...">
+
   <button ng-click="addQuote(); setStorage()">Add Quote</button>
   <br>
-  <input type="text" ng-model="deleteMe">
+
+  <input type="text" ng-model="deleteMe" placeholder="full quote or author">
+
   <button ng-click="deleteQuote()">Delete Quote</button>
 
-  <div ng-repeat="quote in data | filter: searchTerm">
+  <div ng-repeat="quote in data | filter: searchTerm track by $id($index)">
     {{quote.text}}
     <br> {{quote.author}}
     <hr>
