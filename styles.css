@@ -1,0 +1,66 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #ecf0f1;
+  font-family: 'Lato';
+}
+
+section.container {
+  margin: 0 auto;
+}
+
+.controls {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.quotes {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 10px;
+  border: 2px dashed black;
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  border-radius: 5px;
+}
+
+hr {
+  border: 1px solid black;
+  opacity: .2;
+}
+
+input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  border: 2px solid black;
+  background-color: #ecf0f1;
+}
+
+button {
+  min-width: 100px;
+  padding: 10px;
+  background-color: #ecf0f1;
+  border: 2px solid black;
+  border-radius: 7px;
+  font-family: 'Lato';
+}
+
+button.add {}
+
+button.delete {
+  background-color: #e74c3c;
+}
+
+.quotes p {
+  margin: 1px;
+}

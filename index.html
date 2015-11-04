@@ -4,30 +4,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body ng-app='quoteBook' ng-controller='mainController'>
+  <section class="container">
+    <div class="controls">
+      <h1>Quotebook</h1>
+      <h3>Share your inner thoughts, with strangers.</h3>
+      <input type="text" ng-show="test" ng-model="search" placeholder="filter your quotes">
+      <button class="filter" ng-click="filterNow()">Filter</button>
+      <br>
 
-  <input type="text" ng-show="test" ng-model="search" placeholder="filter your quotes">
-  <button ng-click="filterNow()">Filter</button>
-  <br>
+      <input type="text" ng-show="test" ng-model="newQuote" placeholder="insert quote...">
 
-  <input type="text" ng-show="test" ng-model="newQuote" placeholder="insert quote...">
+      <input type="text" ng-show="test" ng-model='newAuthor' placeholder="insert author name...">
 
-  <input type="text" ng-show="test" ng-model='newAuthor' placeholder="insert author name...">
+      <button class="add" ng-click="addQuote(); setStorage()">Add Quote</button>
+      <br>
 
-  <button ng-click="addQuote(); setStorage()">Add Quote</button>
-  <br>
+      <input type="text" ng-model="deleteMe" placeholder="full quote or author">
 
-  <input type="text" ng-model="deleteMe" placeholder="full quote or author">
+      <button class="delete" ng-click="deleteQuote()">Delete Quote</button>
+    </div>
+    <div class="quotes" ng-repeat="quote in data | filter: searchTerm track by $id($index)">
+      <p>"{{quote.text}}"</p>
+      <hr>
+      <p>{{quote.author}}</p>
+    </div>
 
-  <button ng-click="deleteQuote()">Delete Quote</button>
-
-  <div ng-repeat="quote in data | filter: searchTerm track by $id($index)">
-    {{quote.text}}
-    <br> {{quote.author}}
-    <hr>
-  </div>
+  </section>
 
   <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.3/angular.min.js"></script>
   <script src="js/app.js"></script>
